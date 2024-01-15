@@ -1,0 +1,8 @@
+cluster.name: stefentestcluster
+node.name: es01
+node.master: true
+network.host: 172.19.44.51
+http.port: 9200
+transport.tcp.port: 9300
+discovery.seed_hosts: ["ipaddress1/hostname1", "ipaddress2/hostname2"]
+cluster.initial_master_nodes: ["ipadress1/hostname1", "ipadress2/hostname2"]
