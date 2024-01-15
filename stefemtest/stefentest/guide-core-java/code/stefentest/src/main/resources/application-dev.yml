@@ -1,0 +1,42 @@
+server:
+   port: 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 10111
+    servlet:
+      context-path: /runcheck
+    ssl:
+      enabled: false
+  endpoint:
+    health:
+      show-details: always
+    
+spring:
+   time-zone: GMT+8
+   resources:
+       #配置静态资源路径
+       static-locations: classpath:/static/,classpath:/public/,file:${web.profile-path:config/static}
+   jackson:
+     time-zone: Asia/Shanghai
+   redis:
+     host: 127.0.0.1
+     port: 6379
+     jedis:
+       pool:
+         max-active: 5000
+         max-wait: -1
+         max-idle: 30
+         min-idle: 5
+     timeout: 50000
+     #cluster:
+     # nodes: 127.0.0.1:6379
+     database: 9
+   datasource:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/stefentest?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT&allowMultiQueries=true
+      username: root
+      password: 123456
